@@ -3,8 +3,10 @@
 //
 
 #include <iostream>
+#include "Board.h"
 
-int main(int argc, char** argv)
+int main()
 {
     std::cout<<"hello world";
+    Board newBoard = Board();
 }

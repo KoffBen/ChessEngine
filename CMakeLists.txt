@@ -19,6 +19,7 @@ set(SOURCE_FILES
         include/Piece.h
         include/GridPoint.h
         include/Board.h
+        include/pieces/Bishop.h
 )
 
 
