@@ -5,10 +5,13 @@
 #ifndef CHESSENGINE_BISHOP_H
 #define CHESSENGINE_BISHOP_H
 #include "Piece.h"
+#include "Board.h"
 
 class Bishop : public Piece{
 public:
-    Bishop(GridPoint loc, bool color) : mPoints(3), mLoc(loc), mColor(color), mChar('B'), mMoves() {
+    Bishop(const GridPoint& loc, bool color, const Board& board) : mPoints(3), mLoc(loc), mColor
+    (color), mChar
+    ('B'), mMoves(), mBoard(board) {
 
     }
 
@@ -38,10 +41,24 @@ private:
 
     char mChar;
 
-    stack<GridPoint> mMoves;
+    std::stack<GridPoint> mMoves;
+
+    const Board mBoard;
 
     void findMoves() {
+        bool ignore[] = {false, false, false, false};
+        GridPoint tmp = mLoc;
 
+        for (int i = 1; i < 8; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (!ignore[j]) {
+                    switch (j) {
+                        case 0:
+
+                    }
+                }
+            }
+        }
     }
 };
 

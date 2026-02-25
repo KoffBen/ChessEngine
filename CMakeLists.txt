@@ -20,6 +20,7 @@ set(SOURCE_FILES
         include/GridPoint.h
         include/Board.h
         include/pieces/Bishop.h
+        src/GridPoint.cpp
 )
 
 

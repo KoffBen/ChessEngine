@@ -13,13 +13,13 @@ public:
     }
 
     //Destructor
-    ~GridPoint();
+    ~GridPoint() = default;
 
     //Copy Constructor
     GridPoint(const GridPoint& rhs);
 
     //Copy Operator
-    GridPoint& operator=(const GridPoint& rhs);
+    GridPoint& operator=(const GridPoint& rhs) = default;
 
     //Alternate Constructor
     GridPoint(const char& x, const int& y) : mx(x - 'A'), my(y) {
@@ -30,7 +30,7 @@ public:
      * gets the x coordinate
      * @return x value position
      */
-    int x();
+    int x() const;
 
     /**
      * sets mx with the character location
@@ -48,7 +48,7 @@ public:
      * gets the y value for the position vector
      * @return y value position
      */
-    int y();
+    int y() const;
 
     /**
      * sets my with the value for the y position
