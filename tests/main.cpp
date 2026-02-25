@@ -2,7 +2,7 @@
 // Created by benja on 2/24/2026.
 //
 
-#include <iostream>;
+#include <iostream>
 
 int main(int argc, char** argv)
 {

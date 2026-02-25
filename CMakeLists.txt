@@ -15,6 +15,10 @@ include_directories(./include)
 #Define the source files and dependencies
 set(SOURCE_FILES
     tests/main.cpp
+        include/Square.h
+        include/Piece.h
+        include/GridPoint.h
+        include/Board.h
 )
 
 
