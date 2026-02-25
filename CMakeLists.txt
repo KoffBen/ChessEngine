@@ -21,6 +21,7 @@ set(SOURCE_FILES
         include/Board.h
         include/pieces/Bishop.h
         src/GridPoint.cpp
+        src/Bishop.cpp
 )
 
 

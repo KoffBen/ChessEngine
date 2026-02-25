@@ -22,14 +22,29 @@ public:
     ~Board();
 
     /**
+     * Gives the square at a given GridPoint
+     */
+    Square& getSquare(const GridPoint& rhs) const;
+
+    /**
      * Returns true if the GridPoint is on the board, false otherwise
      */
-    bool isOnBoard(GridPoint rhs);
+    bool isOnBoard(const GridPoint& rhs) const;
+
+    /**
+     * Returns true if the GridPoint is on the board, false otherwise
+     */
+    bool isOnBoard(int x, int y) const;
+
+    /**
+     * Determines if a GridPoint is eligible
+     */
+    bool isEligiable(const GridPoint& rhs) const;
 
     /**
      * Returns the color that the board's perspective is in
      */
-    bool getColor();
+    bool getColor() const;
 
     /**
      * Changes the color of the board

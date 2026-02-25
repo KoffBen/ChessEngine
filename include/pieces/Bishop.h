@@ -11,7 +11,7 @@ class Bishop : public Piece{
 public:
     Bishop(const GridPoint& loc, bool color, const Board& board) : mPoints(3), mLoc(loc), mColor
     (color), mChar
-    ('B'), mMoves(), mBoard(board) {
+    ('B'), mBoard(board) {
 
     }
 
@@ -45,21 +45,8 @@ private:
 
     const Board mBoard;
 
-    void findMoves() {
-        bool ignore[] = {false, false, false, false};
-        GridPoint tmp = mLoc;
+    void findMoves();
 
-        for (int i = 1; i < 8; i++) {
-            for (int j = 0; j < 4; j++) {
-                if (!ignore[j]) {
-                    switch (j) {
-                        case 0:
-
-                    }
-                }
-            }
-        }
-    }
 };
 
 #endif //CHESSENGINE_BISHOP_H
