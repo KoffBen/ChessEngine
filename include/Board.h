@@ -8,6 +8,7 @@
 #include <string>
 #include "Square.h"
 
+
 class Board {
 public:
     //Default Constructor
@@ -74,13 +75,23 @@ private:
     Square mSquare[8][8];
 
     /**
+     * All of the pieces that may come up in the game
+     */
+    Piece* mPieces[32];
+
+    /**
      * Is this board from white's perspective
      */
     bool mColor;
+
     /**
      * The evaluation of the present state of the board
      */
     int mEval;
+
+    void resetPieces();
+
+    void resetBoard();
 };
 
 #endif //CHESSENGINE_BOARD_H

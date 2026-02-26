@@ -16,6 +16,8 @@ public:
     }
 
     std::stack<GridPoint> getPotentialMoves() override {
+        mMoves.
+
         return mMoves;
     }
 
@@ -35,18 +37,18 @@ public:
 private:
     int mPoints;
 
-    GridPoint mLoc;
-
     bool mColor;
 
     char mChar;
 
-    std::stack<GridPoint> mMoves;
 
     const Board mBoard;
 
-    void findMoves();
+    GridPoint mLoc;
 
+    std::stack<GridPoint> mMoves;
+
+    void findMoves();
 };
 
 #endif //CHESSENGINE_BISHOP_H

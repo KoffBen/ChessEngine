@@ -8,11 +8,10 @@ void Bishop::findMoves() {
     bool ignore[] = {false, false, false, false};
     int xSign = 1, ySign = 1;
 
-    for (int i = 1; i < 8; i++) {
-        for (int j = 0; j < 4; j++) {
+    for (int i = 1; i < 8; ++i) {
+        for (int j = 0; j < 4; ++j) {
             if (!ignore[j]) {
-                auto newCoord = GridPoint(mLoc.x() + i*xSign, mLoc.y() + i*ySign);
-                if (!mBoard.isEligiable(newCoord)) {
+                if (auto newCoord = GridPoint(mLoc.x() + i*xSign, mLoc.y() + i*ySign); !mBoard.isEligiable(newCoord)) {
                     ignore[j] = true;
                 } else {
                     if (mBoard.getSquare(newCoord).isOccupied() && (mBoard.getSquare(newCoord)

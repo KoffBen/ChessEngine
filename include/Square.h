@@ -14,7 +14,8 @@ public:
 
     }
     //Destructor
-    ~Square() = default;
+    //Reminder to delete the pieces when the square deletes
+    ~Square();
 
     //Copy constructor
     Square(const Square& rhs);

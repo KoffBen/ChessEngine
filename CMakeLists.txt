@@ -22,6 +22,7 @@ set(SOURCE_FILES
         include/pieces/Bishop.h
         src/GridPoint.cpp
         src/Bishop.cpp
+        src/Board.cpp
 )
 
 
