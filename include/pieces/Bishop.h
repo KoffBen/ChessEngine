@@ -9,15 +9,14 @@
 
 class Bishop : public Piece{
 public:
-    Bishop(const GridPoint& loc, bool color, const Board& board) : mPoints(3), mLoc(loc), mColor
-    (color), mChar
-    ('B'), mBoard(board) {
+    Bishop(const GridPoint& loc, bool color, const Board& board) : mPoints(3), mColor(color),
+    mChar('B'), mBoard(board), mLoc(loc) {
 
     }
 
-    std::stack<GridPoint> getPotentialMoves() override {
-        mMoves.
-
+    std::list<GridPoint> getPotentialMoves() override {
+        mMoves.clear();
+        findMoves();
         return mMoves;
     }
 
@@ -46,7 +45,7 @@ private:
 
     GridPoint mLoc;
 
-    std::stack<GridPoint> mMoves;
+    std::list<GridPoint> mMoves;
 
     void findMoves();
 };

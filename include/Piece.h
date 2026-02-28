@@ -4,8 +4,9 @@
 
 #ifndef CHESSENGINE_PIECE_H
 #define CHESSENGINE_PIECE_H
+
+#include <list>
 #include "GridPoint.h"
-#include <stack>
 
 class Piece {
 
@@ -15,7 +16,7 @@ public:
 
     virtual ~Piece() = default;
 
-    virtual std::stack<GridPoint> getPotentialMoves() = 0;
+    virtual std::list<GridPoint> getPotentialMoves() = 0;
 
     virtual int getPoints() = 0;
 
