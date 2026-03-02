@@ -20,7 +20,7 @@ private:
 
     GridPoint mLoc;
 
-    std::stack<GridPoint> mMoves;
+    std::list<GridPoint> mMoves;
 
     void findMoves();
 };

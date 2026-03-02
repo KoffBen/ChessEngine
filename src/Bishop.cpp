@@ -19,7 +19,7 @@ void Bishop::findMoves() {
                     == mBoard.getColor())) {
                         ignore[j] = true;
                     }
-                    mMoves.push(newCoord);
+                    mMoves.push_back(newCoord);
                 }
             }
             if (j % 2 == 0) {ySign *= -1;} else {xSign *= -1;}

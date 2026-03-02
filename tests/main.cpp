@@ -2,11 +2,10 @@
 // Created by benja on 2/24/2026.
 //
 
-#include <iostream>
-#include "Board.h"
+#include <gtest/gtest.h>
 
-int main()
+int main(int argc, char** argv)
 {
-    std::cout<<"hello world";
-    Board newBoard = Board();
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
