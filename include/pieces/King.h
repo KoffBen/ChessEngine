@@ -4,25 +4,17 @@
 
 #ifndef CHESSENGINE_KING_H
 #define CHESSENGINE_KING_H
+#include "Piece.h"
 
 class King : public Piece {
 public:
+    King(const Board& board, GridPoint& loc, const bool color) : Piece(board, loc, 0,
+        color,'K') {
+
+    }
 
 private:
-    int mPoints;
-
-    bool mColor;
-
-    char mChar;
-
-
-    const Board mBoard;
-
-    GridPoint mLoc;
-
-    std::list<GridPoint> mMoves;
-
-    void findMoves();
+    void findMoves() override;
 };
 
 #endif //CHESSENGINE_KING_H

@@ -11,12 +11,11 @@ void Bishop::findMoves() {
     for (int i = 1; i < 8; ++i) {
         for (int j = 0; j < 4; ++j) {
             if (!ignore[j]) {
-                if (auto newCoord = GridPoint(mLoc.x() + i*xSign, mLoc.y() + i*ySign); !mBoard.isEligiable(newCoord)) {
+                if (auto newCoord = GridPoint(mLoc.x() + i*xSign, mLoc.y() + i*ySign); !mBoard->isEligiable(newCoord)) {
                     ignore[j] = true;
                 } else {
-                    if (mBoard.getSquare(newCoord).isOccupied() && (mBoard.getSquare(newCoord)
-                        .getColor()
-                    == mBoard.getColor())) {
+                    if (mBoard->getSquare(newCoord).isOccupied() &&
+                        (mBoard->getSquare(newCoord).getColor()== mBoard->getColor())) {
                         ignore[j] = true;
                     }
                     mMoves.push_back(newCoord);
