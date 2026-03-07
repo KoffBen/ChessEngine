@@ -12,20 +12,25 @@
 class Board {
 public:
     //Default Constructor
-    Board() : mSquare(), mColor(true), mEval(0) {
-
+    Board() : mSquares(), mColor(true), mEval(0) {
+        resetBoard();
     }
     //Copy Constructor
-    Board(const Board& rhs);
+    Board(const Board& rhs) {
+        for (int i = 0; i < 8; ++i) {
+            for (int j = 0; j < 8; ++j) {
+                mSquares[i][j] = rhs.mSquares[i][j];
+            }
+        }
+
+        for (int i = 0; i < 32; ++i) {
+            mPieces[i] = rhs.mPieces[i];
+        }
+    }
     //Copy Operator
     Board& operator=(const Board& rhs);
     //Destructor
     ~Board();
-
-    /**
-     * Gives the square at a given GridPoint
-     */
-    Square& getSquare(const GridPoint& rhs) const;
 
     /**
      * Returns true if the GridPoint is on the board, false otherwise
@@ -72,7 +77,7 @@ private:
     /**
      * The squares that make up the board
      */
-    Square mSquare[8][8];
+    Square mSquares[8][8];
 
     /**
      * All of the pieces that may come up in the game
@@ -87,7 +92,7 @@ private:
     /**
      * The evaluation of the present state of the board
      */
-    int mEval;
+    double mEval;
 
     void resetPieces();
 

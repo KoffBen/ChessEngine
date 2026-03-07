@@ -10,7 +10,7 @@ class Square {
 
 public:
     //Default Constructor
-    Square() : mPiece(), mAttacked(false), mOccupied(false), mColor(false), mCoord(-1,-1) {
+    Square() : mPiece(), mOccupied(false){
 
     }
     //Destructor
@@ -20,30 +20,36 @@ public:
     //Copy constructor
     Square(const Square& rhs);
 
-    //Copy Operator
-    Square& operator=(const Square& rhs);
-
     //Alternate Constructor
-    Square(Piece* piece, const bool& attacked, const bool& occupied, const bool& color, const
-            GridPoint& coord) : mPiece
-        (piece), mAttacked(attacked), mOccupied(occupied), mColor(color), mCoord(coord) {
+    Square(Piece* piece) : mPiece(piece), mOccupied(true);
 
+    //Copy Operator
+    Square& operator=(const Square& rhs) {
+        mPiece = rhs.mPiece->clone();
+        mOccupied = rhs.mOccupied;
+        return *this;
     }
 
-    Piece* getPiece();
-    void setPiece(Piece* rhs);
 
-    bool isAttacked();
-    void setAttacked(const bool& rhs);
+    [[nodiscard]] Piece* getPiece() const {
+        return mPiece;
+    }
+    void setPiece(Piece* rhs) {
+        //Was worried about leaking memory here but because the piece is held in an array on the
+        //board we will destroy it from there
+        mPiece = rhs;
+    }
 
-    bool isOccupied();
-    void setOccupied(const bool& rhs);
+    Piece* movePiece() {
+        Piece* tmp = mPiece;
+        mPiece = nullptr;
+        mOccupied = false;
+        return tmp;
+    }
 
-    bool getColor();
-    void setColor(const bool& rhs);
-
-    GridPoint getCoord();
-
+    [[nodiscard]] bool isOccupied() const {
+        return mPiece != nullptr;
+    }
 
 private:
     /**
@@ -52,25 +58,9 @@ private:
     Piece* mPiece;
 
     /**
-     *True if the square is under attack, false otherwise
-     */
-    bool mAttacked;
-
-    /**
      *True if the square is occupied, false otherwise
      */
     bool mOccupied;
-
-    /**
-     *True if the square is occupied by white, false otherwise
-     */
-    bool mColor;
-
-    /**
-     *The coordinate associated with this square
-     */
-    GridPoint mCoord;
-
 
 };
 

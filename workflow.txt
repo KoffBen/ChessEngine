@@ -1,0 +1,16 @@
+This document is designed to structure how we will be completing the rest of the engine.
+
+We will be moving to a new system, shutting down lots of the square functionality, this will now be
+ exactly what a square should be, a placeholder for either a piece, or not a piece. The goal is to
+ have a 2d array of square in the board s.t. we will play around with the pieces by way of the
+ board. The board is now the central control of the game, as it should be.
+
+Next steps from here (if there is a 1 next to the action item, it has been completed):
+1 - Modify squares to new structure
+0 - Modify board to accommodate
+0 - Modify Bishop and King to not take in a board, but instead to give gridpoints of ANY potential
+    move, whether it's valid. They don't even need a gridpoint either, that method will simply take
+    in a gridpoint and spit out a list.
+0 - Build the rest of the pieces
+0 - Build the board initialization
+0 - Make the next action items

@@ -7,7 +7,6 @@
 
 #include <list>
 
-#include "Board.h"
 #include "GridPoint.h"
 
 class Piece {
@@ -47,6 +46,8 @@ public:
     char getChar() {
         return mChar;
     }
+
+    virtual Piece* clone();
 
 protected:
 
