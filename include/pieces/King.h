@@ -8,13 +8,14 @@
 
 class King : public Piece {
 public:
-    King(const Board& board, GridPoint& loc, const bool color) : Piece(board, loc, 0,
-        color,'K') {
+    //Default Constructor
+    King(const Board& board, bool color);
 
-    }
+    //getMoves
+    std::list<GridPoint> getMoves(GridPoint& rhs) override;
 
-private:
-    void findMoves() override;
+    //clone
+    Piece* clone() override;
 };
 
 #endif //CHESSENGINE_KING_H

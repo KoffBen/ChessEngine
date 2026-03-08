@@ -3,6 +3,12 @@
 //
 
 #include "Board.h"
+#include "pieces/Rook.h"
+#include "pieces/Knight.h"
+#include "pieces/Bishop.h"
+#include "pieces/Queen.h"
+#include "pieces/King.h"
+#include "pieces/Pawn.h"
 
 
 Board::Board() : mSquares(), mPieces(new Piece*[32]), mColor(true), mEval(0) {
@@ -60,7 +66,7 @@ std::string Board::toString() {
     return "";
 }
 
-const Square& Board::getSquare(const GridPoint& rhs) {
+const Square& Board::getSquare(const GridPoint& rhs) const{
     return mSquares[rhs.x()][rhs.y()];
 }
 

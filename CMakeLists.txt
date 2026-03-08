@@ -32,6 +32,8 @@ set(SOURCE_FILES
         src/Bishop.cpp
         src/Board.cpp
         src/Square.cpp
+        src/Piece.cpp
+        src/King.cpp
 )
 
 

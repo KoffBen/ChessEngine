@@ -7,13 +7,6 @@
 
 #include <string>
 #include "Square.h"
-#include "pieces/Rook.h"
-#include "pieces/Knight.h"
-#include "pieces/Bishop.h"
-#include "pieces/Queen.h"
-#include "pieces/King.h"
-#include "pieces/Pawn.h"
-
 
 class Board {
 public:
@@ -63,7 +56,7 @@ public:
      */
     std::string toString();
 
-    const Square& getSquare(const GridPoint& rhs);
+    const Square& getSquare(const GridPoint& rhs) const;
 
 
 private:

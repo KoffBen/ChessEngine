@@ -6,12 +6,10 @@
 #define CHESSENGINE_BISHOP_H
 #include "Piece.h"
 
-class Bishop : public Piece{
+class Bishop : public Piece {
 public:
     //Default Constructor
-    Bishop(const Board* const board, const bool color) : Piece(board, 3, color, 'B') {
-
-    }
+    Bishop(const Board& board, bool color);
 
     //getMoves
     std::list<GridPoint> getMoves(GridPoint& rhs) override;

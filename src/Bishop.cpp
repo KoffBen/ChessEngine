@@ -4,15 +4,19 @@
 
 #include "pieces/Bishop.h"
 
+Bishop::Bishop(const Board& board, const bool color) : Piece(board, 3, color, 'B') {
+
+}
+
 std::list<GridPoint> Bishop::getMoves(GridPoint& rhs) {
     bool ignore[] = {false, false, false, false};
     int xSign = 1, ySign = 1;
 
     for (int i = 1; i < 8; ++i) {
         for (int j = 0; j < 4; ++j) {
+            const int eligibility = getEligibility(rhs.x() + i * xSign, rhs.y() + i * ySign);
             if (!ignore[j]) {
-                if (const int eligibility = getEligibility(rhs.x() + i * xSign, rhs.y() + i * ySign)
-                    == 0) {
+                if (eligibility == 0) {
                     ignore[j] = true;
                 } else {
                     if (eligibility == 1) {
@@ -25,4 +29,9 @@ std::list<GridPoint> Bishop::getMoves(GridPoint& rhs) {
         }
     }
     return mMoves;
+}
+
+Piece* Bishop::clone() {
+    const auto tmp = new Bishop(*mBoard, getColor());
+    return tmp;
 }
