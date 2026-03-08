@@ -31,6 +31,7 @@ set(SOURCE_FILES
         src/GridPoint.cpp
         src/Bishop.cpp
         src/Board.cpp
+        src/Square.cpp
 )
 
 

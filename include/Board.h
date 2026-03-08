@@ -7,50 +7,46 @@
 
 #include <string>
 #include "Square.h"
+#include "pieces/Rook.h"
+#include "pieces/Knight.h"
+#include "pieces/Bishop.h"
+#include "pieces/Queen.h"
+#include "pieces/King.h"
+#include "pieces/Pawn.h"
 
 
 class Board {
 public:
     //Default Constructor
-    Board() : mSquares(), mColor(true), mEval(0) {
-        resetBoard();
-    }
+    Board();
     //Copy Constructor
-    Board(const Board& rhs) {
-        for (int i = 0; i < 8; ++i) {
-            for (int j = 0; j < 8; ++j) {
-                mSquares[i][j] = rhs.mSquares[i][j];
-            }
-        }
-
-        for (int i = 0; i < 32; ++i) {
-            mPieces[i] = rhs.mPieces[i];
-        }
-    }
+    Board(const Board& rhs);
     //Copy Operator
-    Board& operator=(const Board& rhs);
+    Board& operator=(const Board& rhs) = delete;
     //Destructor
     ~Board();
 
     /**
      * Returns true if the GridPoint is on the board, false otherwise
      */
-    bool isOnBoard(const GridPoint& rhs) const;
+    [[nodiscard]] bool isOnBoard(const GridPoint& rhs) const;
 
     /**
      * Returns true if the GridPoint is on the board, false otherwise
      */
-    bool isOnBoard(int x, int y) const;
+    [[nodiscard]] bool isOnBoard(int x, int y) const;
 
     /**
      * Determines if a GridPoint is eligible
+     * Eligibility is defined as being on the board, and having the associated square not be
+     * occupied by a piece of the same color as the board
      */
-    bool isEligiable(const GridPoint& rhs) const;
+    [[nodiscard]] bool isEligible(const GridPoint& rhs) const;
 
     /**
      * Returns the color that the board's perspective is in
      */
-    bool getColor() const;
+    [[nodiscard]] bool getColor() const;
 
     /**
      * Changes the color of the board
@@ -60,12 +56,7 @@ public:
     /**
      * Gets the evaluation of the current board
      */
-    int getEval();
-
-    /**
-     * Evaluates the eval at the current board
-     */
-    void calcEval();
+    double getEval();
 
     /**
      * Get a string representation of the board
@@ -82,7 +73,7 @@ private:
     /**
      * All of the pieces that may come up in the game
      */
-    Piece* mPieces[32];
+    Piece** mPieces;
 
     /**
      * Is this board from white's perspective
@@ -94,8 +85,21 @@ private:
      */
     double mEval;
 
+    /**
+     * Evaluates the eval at the current board
+     */
+    void calcEval();
+
+    /**
+     * Resets the array mPieces to exist at it's initial state, holding all the necessary pieces
+     * of the board
+     */
     void resetPieces();
 
+    /**
+     * Resets the board to its initial state, resetting the pieces and putting them in their
+     * starting states
+     */
     void resetBoard();
 };
 

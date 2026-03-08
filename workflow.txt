@@ -7,10 +7,17 @@ We will be moving to a new system, shutting down lots of the square functionalit
 
 Next steps from here (if there is a 1 next to the action item, it has been completed):
 1 - Modify squares to new structure
-0 - Modify board to accommodate
+1 - Modify board to accommodate
 0 - Modify Bishop and King to not take in a board, but instead to give gridpoints of ANY potential
     move, whether it's valid. They don't even need a gridpoint either, that method will simply take
     in a gridpoint and spit out a list.
 0 - Build the rest of the pieces
 0 - Build the board initialization
 0 - Make the next action items
+
+
+Things to look into when back to internet:
+0 - Board Copy Constructor and Assignment Operator code overlap
+0 - Make the toString functions for everything
+0 - uint32_t stuff
+0 - nodiscard?

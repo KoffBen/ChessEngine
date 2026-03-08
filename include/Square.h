@@ -10,46 +10,28 @@ class Square {
 
 public:
     //Default Constructor
-    Square() : mPiece(), mOccupied(false){
-
-    }
+    Square();
     //Destructor
     //Reminder to delete the pieces when the square deletes
+    //ACTUAL: Make sure to decrement the square count when it's deleted
     ~Square();
 
     //Copy constructor
     Square(const Square& rhs);
 
     //Alternate Constructor
-    Square(Piece* piece) : mPiece(piece), mOccupied(true);
+    Square(Piece* piece);
 
     //Copy Operator
-    Square& operator=(const Square& rhs) {
-        mPiece = rhs.mPiece->clone();
-        mOccupied = rhs.mOccupied;
-        return *this;
-    }
+    Square& operator=(const Square& rhs);
 
+    [[nodiscard]] Piece* getPiece() const;
 
-    [[nodiscard]] Piece* getPiece() const {
-        return mPiece;
-    }
-    void setPiece(Piece* rhs) {
-        //Was worried about leaking memory here but because the piece is held in an array on the
-        //board we will destroy it from there
-        mPiece = rhs;
-    }
+    void setPiece(Piece* rhs);
 
-    Piece* movePiece() {
-        Piece* tmp = mPiece;
-        mPiece = nullptr;
-        mOccupied = false;
-        return tmp;
-    }
+    Piece* movePiece();
 
-    [[nodiscard]] bool isOccupied() const {
-        return mPiece != nullptr;
-    }
+    [[nodiscard]] bool isOccupied() const;
 
 private:
     /**
@@ -62,6 +44,7 @@ private:
      */
     bool mOccupied;
 
+    static int squareCount;
 };
 
 #endif //CHESSENGINE_SQUARE_H

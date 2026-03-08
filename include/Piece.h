@@ -13,8 +13,8 @@ class Piece {
 
 public:
     //Constructor
-    Piece(const Board& board, GridPoint& loc, const int points, const bool color, const char
-        name) : mBoard(&board), mLoc(&loc), mPoints(points), mColor(color), mChar(name) {
+    Piece(GridPoint& loc, const int points, const bool color, const char
+        name) : mLoc(&loc), mPoints(points), mColor(color), mChar(name) {
 
     }
 
@@ -65,6 +65,7 @@ private:
     std::list<GridPoint> mMoves;
 
     virtual void findMoves() = 0;
+
 };
 
 #endif //CHESSENGINE_PIECE_H
