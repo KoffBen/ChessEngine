@@ -4,24 +4,25 @@
 
 #include "pieces/Bishop.h"
 
-void Bishop::findMoves() {
+std::list<GridPoint> Bishop::getMoves(GridPoint& rhs) {
     bool ignore[] = {false, false, false, false};
     int xSign = 1, ySign = 1;
 
     for (int i = 1; i < 8; ++i) {
         for (int j = 0; j < 4; ++j) {
             if (!ignore[j]) {
-                if (auto newCoord = GridPoint(mLoc.x() + i*xSign, mLoc.y() + i*ySign); !mBoard->isEligiable(newCoord)) {
+                if (const int eligibility = getEligibility(rhs.x() + i * xSign, rhs.y() + i * ySign)
+                    == 0) {
                     ignore[j] = true;
                 } else {
-                    if (mBoard->getSquare(newCoord).isOccupied() &&
-                        (mBoard->getSquare(newCoord).getColor()== mBoard->getColor())) {
+                    if (eligibility == 1) {
                         ignore[j] = true;
                     }
-                    mMoves.push_back(newCoord);
+                    mMoves.emplace_back(rhs.x() + i * xSign, rhs.y() + i * ySign);
                 }
             }
             if (j % 2 == 0) {ySign *= -1;} else {xSign *= -1;}
         }
     }
+    return mMoves;
 }

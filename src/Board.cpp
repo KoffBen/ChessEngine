@@ -60,6 +60,10 @@ std::string Board::toString() {
     return "";
 }
 
+const Square& Board::getSquare(const GridPoint& rhs) {
+    return mSquares[rhs.x()][rhs.y()];
+}
+
 void Board::resetPieces() {
     for (int i = 0; i < 32; ++i) {
         /*switch (i) {

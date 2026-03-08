@@ -63,6 +63,8 @@ public:
      */
     std::string toString();
 
+    const Square& getSquare(const GridPoint& rhs);
+
 
 private:
     /**

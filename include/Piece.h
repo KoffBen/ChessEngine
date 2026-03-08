@@ -6,54 +6,51 @@
 #define CHESSENGINE_PIECE_H
 
 #include <list>
-
+#include <string>
+#include "Board.h"
 #include "GridPoint.h"
 
 class Piece {
 
 public:
-    //Constructor
-    Piece(GridPoint& loc, const int points, const bool color, const char
-        name) : mLoc(&loc), mPoints(points), mColor(color), mChar(name) {
-
+    //Constructor, to be used by the children
+    Piece(const Board* const board, const int points, const bool color, const char newChar) :
+    mBoard(board), mPoints(points), mColor(color), mChar(newChar) {
     }
 
     virtual ~Piece() = default;
 
-    std::list<GridPoint>& getPotentialMoves() {
-        mMoves.clear();
-        findMoves();
-        return mMoves;
-    }
+    //Should be overridden
+    virtual std::list<GridPoint> getMoves(GridPoint& rhs) = 0;
 
-    int getPoints() {
+    [[nodiscard]] int getPoints() const {
         return mPoints;
     }
 
-    GridPoint* getLoc() {
-        return mLoc;
-    }
-
-    void setLoc(const GridPoint& rhs) {
-        mLoc->x(rhs.x());
-        mLoc->y(rhs.y());
-    }
-
-    bool getColor() {
+    [[nodiscard]] bool getColor() const {
         return mColor;
     }
 
-    char getChar() {
+    [[nodiscard]] char getChar() const {
         return mChar;
     }
 
-    virtual Piece* clone();
+    //Intention is to be overridden s.t. each piece will clone one of its own pieces
+    virtual Piece* clone() = 0;
 
 protected:
+    const Board* const mBoard;
+    std::list<GridPoint> mMoves;
 
-    const Board* mBoard;
-
-    GridPoint* mLoc;
+    int getEligibility(int x, int y) {
+        if (auto currGrid = GridPoint(x, y); mBoard->isEligible(currGrid)) {
+            if (mBoard->getSquare(currGrid).isOccupied()) {
+                return 1;
+            }
+            return 2;
+        }
+        return 0;
+    }
 
 private:
     int mPoints;
@@ -61,11 +58,6 @@ private:
     bool mColor;
 
     char mChar;
-
-    std::list<GridPoint> mMoves;
-
-    virtual void findMoves() = 0;
-
 };
 
 #endif //CHESSENGINE_PIECE_H
