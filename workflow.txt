@@ -1,23 +1,50 @@
-This document is designed to structure how we will be completing the rest of the engine.
+.programmerignore
+    {This document is designed to structure how we will be completing the rest of the engine.
 
-We will be moving to a new system, shutting down lots of the square functionality, this will now be
- exactly what a square should be, a placeholder for either a piece, or not a piece. The goal is to
- have a 2d array of square in the board s.t. we will play around with the pieces by way of the
- board. The board is now the central control of the game, as it should be.
+    We will be moving to a new system, shutting down lots of the square functionality, this will now be
+     exactly what a square should be, a placeholder for either a piece, or not a piece. The goal is to
+     have a 2d array of square in the board s.t. we will play around with the pieces by way of the
+     board. The board is now the central control of the game, as it should be.
 
-Next steps from here (if there is a 1 next to the action item, it has been completed):
-1 - Modify squares to new structure
-1 - Modify board to accommodate
-0 - Modify Bishop and King to not take in a board, but instead to give gridpoints of ANY potential
-    move, whether it's valid. They don't even need a gridpoint either, that method will simply take
-    in a gridpoint and spit out a list.
-0 - Build the rest of the pieces
-0 - Build the board initialization
-0 - Make the next action items
+    Next steps from here (if there is a 1 next to the action item, it has been completed):
+    1 - Modify squares to new structure
+    1 - Modify board to accommodate
+    0 - Modify Bishop and King to not take in a board, but instead to give gridpoints of ANY potential
+        move, whether it's valid. They don't even need a gridpoint either, that method will simply take
+        in a gridpoint and spit out a list.
+    0 - Build the rest of the pieces
+    0 - Build the board initialization
+    0 - Make the next action items
 
 
-Things to look into when back to internet:
-0 - Board Copy Constructor and Assignment Operator code overlap
-0 - Make the toString functions for everything
-0 - uint32_t stuff
-0 - nodiscard?
+    Things to look into when back to internet:
+    0 - Board Copy Constructor and Assignment Operator code overlap
+    0 - Make the toString functions for everything
+    0 - uint32_t stuff
+    0 - nodiscard?}
+
+
+Lirk it's probably time to implement some design patterns.
+I'm thinking we need to restructure the pieces as composite, implement commands for ease of use with backwards forwards
+moves and all that, bridge comes through command theoretically/naturally, factory will be required for command, and
+we'll see what else might fit in. Happy coding :) !
+
+With this I'm tossing a .programmerignore (.gitignore for myself haha) around the previous workflow.
+
+New Action Items:
+0 - Convert pieces to a composite structure
+    0 - Include getting the piece value counts
+0 - Command pattern to move the pieces
+    0 - PRIORITY: Look into move semantics first
+    0 - Don't forget to work out states before diving in
+0 - Let's get a pseudo-singleton in that will be global within each board frame
+    - Idea here is that this will determine if the state of the board within the frame has changed for each of the
+      composite tree metrics that would otherwise cause a rerun of the recursive algo for things like point totals
+    0 - Work out logic of a pseudo-singleton
+0 - Evaluation function logic
+0 - Minimax algorithm logic
+0 - Figure out proper implementation of eval function and minimax algo
+0 - Probably going to need some main function to handle working through everything
+    0 - I would suggest looking through Hemmingway's Tree-Eval program to figure out the best way of doing that
+0 - Look into MCTS
+0 - Assess if we need anything else or need to rework the workflow.
