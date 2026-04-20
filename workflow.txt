@@ -41,6 +41,8 @@ New Action Items:
     - Idea here is that this will determine if the state of the board within the frame has changed for each of the
       composite tree metrics that would otherwise cause a rerun of the recursive algo for things like point totals
     0 - Work out logic of a pseudo-singleton
+0 - Try to implement Observer to function as the board maybe, because that is kinda how it works.
+        Also would be more easily modifiable for future use.
 0 - Evaluation function logic
 0 - Minimax algorithm logic
 0 - Figure out proper implementation of eval function and minimax algo
