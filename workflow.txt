@@ -31,6 +31,10 @@ we'll see what else might fit in. Happy coding :) !
 
 With this I'm tossing a .programmerignore (.gitignore for myself haha) around the previous workflow.
 
+
+IMPORTANT: Lirk we're probably going to need to blow this up on a whiteboard.
+
+
 New Action Items:
 0 - Convert pieces to a composite structure
     0 - Include getting the piece value counts
