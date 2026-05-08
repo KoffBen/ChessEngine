@@ -4,7 +4,7 @@
 
 #ifndef CHESSENGINE_COLOR_H
 #define CHESSENGINE_COLOR_H
-#include "../Piece.h"
+#include "../pieces/Piece.h"
 
 
 class Color

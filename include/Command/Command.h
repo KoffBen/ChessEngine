@@ -4,15 +4,26 @@
 
 #ifndef CHESSENGINE_COMMAND_H
 #define CHESSENGINE_COMMAND_H
+#include "../Core/Context.h"
 
 //Okay okay, this is the first Command I've ever written myself so it may be a bit sketchy. For the time being, first
 //command will involve adding pieces because we want to both add to the board and add to the composite.
 //With this I guess we'll also make use of the factory? Also can be used for queening and the like.
 
-class Command
-{
+class Command {
 public:
+    explicit Command(Context* context) : mContext(context)
+    {
 
+    }
+
+    virtual ~Command() = default;
+
+    virtual bool execute();
+
+
+protected:
+    Context* mContext;
 };
 
 #endif //CHESSENGINE_COMMAND_H

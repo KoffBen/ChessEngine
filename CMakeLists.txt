@@ -24,7 +24,7 @@ include_directories(./include)
 set(SOURCE_FILES
     tests/main.cpp
         include/Square.h
-        include/Piece.h
+        include/pieces/Piece.h
         include/GridPoint.h
         include/Board.h
         include/pieces/Bishop.h
@@ -40,6 +40,15 @@ set(SOURCE_FILES
         include/Composite/Color.h
         include/newBoard.h
         include/Command/Command.h
+        include/Core/Context.h
+        include/Command/MakeBishop.h
+        include/NewGridPoint.h
+        include/Command/MakeKing.h
+        include/Command/MakeQueen.h
+        include/Command/MakeKnight.h
+        include/Command/MakeRook.h
+        include/Command/MakePawn.h
+        include/Command/DeletePiece.h
 )
 
 

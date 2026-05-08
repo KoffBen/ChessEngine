@@ -17,9 +17,11 @@ public:
     ~NewBoard() = default;
 
     void defaultSetup();
+
+    //IMPORTANT: This is to be adapted with UCI Specs
+    void givenSetup();
 private:
     Piece* mBoard[8][8] = {};
-
 };
 
 #endif //CHESSENGINE_NEWBOARD_H

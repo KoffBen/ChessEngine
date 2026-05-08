@@ -4,7 +4,7 @@
 
 #ifndef CHESSENGINE_SQUARE_H
 #define CHESSENGINE_SQUARE_H
-#include "Piece.h"
+#include "pieces/Piece.h"
 
 class Square {
 
