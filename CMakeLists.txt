@@ -34,6 +34,12 @@ set(SOURCE_FILES
         src/Square.cpp
         src/Piece.cpp
         src/King.cpp
+        include/Visitor/visitor.h
+        include/Visitor/PrintVisitor.h
+        include/Composite/PieceSet.h
+        include/Composite/Color.h
+        include/newBoard.h
+        include/Command/Command.h
 )
 
 
