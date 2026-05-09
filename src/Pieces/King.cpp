@@ -4,7 +4,13 @@
 
 #include "pieces/King.h"
 
-King::King(const Board& board, const bool color) : Piece(board, 0, color, 'K') {
+
+void King::accept(Visitor& visitor) const
+{
+    visitor.visit(*this);
+}
+
+/*King::King(const Board& board, const bool color) : Piece(board, 0, color, 'K') {
 
 }
 
@@ -36,3 +42,4 @@ Piece* King::clone() {
     const auto tmp = new King(*mBoard, getColor());
     return tmp;
 }
+*/

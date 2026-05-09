@@ -4,12 +4,13 @@
 
 #ifndef CHESSENGINE_VISITOR_H
 #define CHESSENGINE_VISITOR_H
-#include "../pieces/Rook.h"
-#include "../pieces/Knight.h"
-#include "../pieces/Bishop.h"
-#include "../pieces/Queen.h"
-#include "../pieces/King.h"
-#include "../pieces/Pawn.h"
+
+class Bishop;
+class Rook;
+class Knight;
+class King;
+class Queen;
+class Pawn;
 
 class Visitor
 {

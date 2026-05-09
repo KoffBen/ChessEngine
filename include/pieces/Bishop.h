@@ -9,13 +9,12 @@
 class Bishop : public Piece {
 public:
     //Default Constructor
-    Bishop(const Board& board, bool color);
+    explicit Bishop(const NewGridPoint pt) : Piece(pt)
+    {
 
-    //getMoves
-    std::list<GridPoint> getMoves(GridPoint& rhs) override;
+    }
 
-    //clone
-    Piece* clone() override;
+    void accept(Visitor& visitor) const override;
 };
 
 #endif //CHESSENGINE_BISHOP_H

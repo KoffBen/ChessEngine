@@ -9,13 +9,12 @@
 class King : public Piece {
 public:
     //Default Constructor
-    King(const Board& board, bool color);
+    explicit King(const NewGridPoint pt) : Piece(pt)
+    {
 
-    //getMoves
-    std::list<GridPoint> getMoves(GridPoint& rhs) override;
+    }
 
-    //clone
-    Piece* clone() override;
+    void accept(Visitor& visitor) const override;
 };
 
 #endif //CHESSENGINE_KING_H

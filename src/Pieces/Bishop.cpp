@@ -2,12 +2,18 @@
 // Created by benja on 2/25/2026.
 //
 
+
+
+//Bishop::Bishop(const Board& board, const bool color) : Piece(board, 3, color, 'B') {
+
 #include "pieces/Bishop.h"
-
-Bishop::Bishop(const Board& board, const bool color) : Piece(board, 3, color, 'B') {
-
+//}
+void Bishop::accept(Visitor& visitor) const
+{
+    visitor.visit(*this);
 }
 
+/*
 std::list<GridPoint> Bishop::getMoves(GridPoint& rhs) {
     bool ignore[] = {false, false, false, false};
     int xSign = 1, ySign = 1;
@@ -30,8 +36,4 @@ std::list<GridPoint> Bishop::getMoves(GridPoint& rhs) {
     }
     return mMoves;
 }
-
-Piece* Bishop::clone() {
-    const auto tmp = new Bishop(*mBoard, getColor());
-    return tmp;
-}
+*/

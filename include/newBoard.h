@@ -22,6 +22,8 @@ public:
     void givenSetup();
 private:
     Piece* mBoard[8][8] = {};
+
+    double eval;
 };
 
 #endif //CHESSENGINE_NEWBOARD_H

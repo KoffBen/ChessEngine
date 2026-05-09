@@ -29,11 +29,10 @@ set(SOURCE_FILES
         include/Board.h
         include/pieces/Bishop.h
         src/GridPoint.cpp
-        src/Bishop.cpp
+        src/Pieces/Bishop.cpp
         src/Board.cpp
         src/Square.cpp
-        src/Piece.cpp
-        src/King.cpp
+        src/Pieces/King.cpp
         include/Visitor/visitor.h
         include/Visitor/PrintVisitor.h
         include/Composite/PieceSet.h
@@ -49,6 +48,9 @@ set(SOURCE_FILES
         include/Command/MakeRook.h
         include/Command/MakePawn.h
         include/Command/DeletePiece.h
+        src/Pieces/Queen.cpp
+        src/Pieces/Pawn.cpp
+        src/Pieces/Knight.cpp
 )
 
 

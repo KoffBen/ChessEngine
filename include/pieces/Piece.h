@@ -16,10 +16,12 @@ class Board;
 class Piece {
 
 public:
-    Piece(NewGridPoint pt) : mPt(pt)
+    explicit Piece(const NewGridPoint pt) : mPt(pt)
     {
 
     }
+
+    virtual ~Piece() = default;
 
     virtual void accept(Visitor& visitor) const = 0;
 private:
