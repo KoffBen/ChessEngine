@@ -5,7 +5,9 @@
 #ifndef CHESSENGINE_NEWBOARD_H
 #define CHESSENGINE_NEWBOARD_H
 
-#include "Piece.h"
+#include "pieces/Piece.h"
+
+class Piece;
 
 //Called NewBoard for the time being because it's replacing Board but I want to leave that code intact for smooth transition
 class NewBoard
@@ -20,6 +22,10 @@ public:
 
     //IMPORTANT: This is to be adapted with UCI Specs
     void givenSetup();
+
+    void addPiece(Piece* piece);
+
+    Piece* getPiece(NewGridPoint pt);
 private:
     Piece* mBoard[8][8] = {};
 

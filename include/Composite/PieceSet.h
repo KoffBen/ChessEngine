@@ -17,7 +17,7 @@ public:
     ~PieceSet();
 
     //Adding pieces to the composite -- this actually resembles more of a mini interpreter
-    void addPiece(const Piece* piece);
+    void addPiece(const Piece* piece, bool color);
 
 private:
     Color black;

@@ -51,6 +51,10 @@ set(SOURCE_FILES
         src/Pieces/Queen.cpp
         src/Pieces/Pawn.cpp
         src/Pieces/Knight.cpp
+        include/Command/DefaultBoard.h
+        src/Command/DefaultBoard.cpp
+        src/Command/MakeBishop.cpp
+        src/Command/MakeRook.cpp
 )
 
 

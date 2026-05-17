@@ -1,0 +1,125 @@
+[33mcommit 7e080e0731a8084d8d617cf62af111434a8f299f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: BenKoff <benjaminkoff@gmail.com>
+Date:   Fri May 8 20:25:00 2026 -0400
+
+    Pieces are done, decide what to do next -- probably finalize the board so potentially making the piece factory / mini interpreter
+
+[33mcommit 3647573f704b0f7678a6ec3cfd2202029975be97[m
+Author: BenKoff <benjaminkoff@gmail.com>
+Date:   Fri May 8 14:00:03 2026 -0400
+
+    Landing, but we left off remaking the pieces with new specs. Check iPad if you're lost
+
+[33mcommit ed62897e29d809801d4876bfa62dcd5877a47cc9[m
+Author: BenKoff <benjaminkoff@gmail.com>
+Date:   Fri May 8 13:16:28 2026 -0400
+
+    Okay quick commit here so that I don't lose track of things. Basically what we've got here is that the patterns are starting to be implemented, I accidentally invented a psuedo-context I guess?
+
+[33mcommit 65b2fa49f380a7451cacaa146b3bb6421dbb2b14[m
+Author: BenKoff <benjaminkoff@gmail.com>
+Date:   Mon Apr 20 10:45:32 2026 -0500
+
+    Billions of commits, sorry, but gotta keep track
+
+[33mcommit 5d7317a1839382b4bf34bc8b8fa49f8e7484da2c[m
+Author: BenKoff <benjaminkoff@gmail.com>
+Date:   Mon Apr 20 10:37:57 2026 -0500
+
+    Slight addition, learning about Observer Pattern in class right now
+
+[33mcommit 417b726bb2dbf702a37f1bdecd5ae1e80680091c[m
+Author: BenKoff <benjaminkoff@gmail.com>
+Date:   Fri Apr 17 13:44:58 2026 -0500
+
+    New plans have been made, workflow updated, I love design patterns
+
+[33mcommit 33f4ac8e053f127faf45c1d821a027d9ea718c60[m
+Author: Ben <benjaminkoff@gmail.com>
+Date:   Sun Mar 8 16:07:54 2026 -0600
+
+    Ladies and gentlement, we have compilation. Looks like the transition phase is done but we need to finish implementing all of the other pieces and then will finish board and then write the eval function and minimax algo
+
+[33mcommit b8f5a90d0f23e2091cbe42e2876211f74f367293[m
+Author: Ben <benjaminkoff@gmail.com>
+Date:   Sun Mar 8 17:13:19 2026 -0400
+
+    Testing reloading the IDE
+
+[33mcommit 868f39856866b8d3642fe6607bc87416b5e5bd5c[m
+Author: Ben <benjaminkoff@gmail.com>
+Date:   Sun Mar 8 08:50:21 2026 -0400
+
+    Board and Squares look good, next up is just building the pieces but I'm tired
+
+[33mcommit af1d5c704efb6745372c77f02bbefd058c5b26b4[m
+Author: Ben <benjaminkoff@gmail.com>
+Date:   Sun Mar 8 08:49:23 2026 -0400
+
+    Board and Squares look good, next up is just building the pieces but I'm tired:
+
+[33mcommit eb989904e105fa3e6d6cb556b0d2bf7d2540b75f[m
+Author: Ben <benjaminkoff@gmail.com>
+Date:   Fri Mar 6 18:48:45 2026 -0600
+
+    Have to put away computer for the plane, midway through AI2. Look for the bord copy constructor when you get back
+
+[33mcommit 13ca4dead897be287874efbefb75a0450066ca2d[m
+Author: Ben <benjaminkoff@gmail.com>
+Date:   Mon Mar 2 14:29:14 2026 -0600
+
+    Not sure what I did to get all these compilation errors but I have to go then will debug
+
+[33mcommit 163b235578927e7fed041f04710461a92645b4e2[m
+Author: Ben <benjaminkoff@gmail.com>
+Date:   Mon Mar 2 10:59:52 2026 -0600
+
+    Very minor commit, finished changing everything from stack to list and now we can technically compile things
+
+[33mcommit b71ee927af0c73883db8d7a04b154530ab677cce[m
+Author: Ben <benjaminkoff@gmail.com>
+Date:   Sat Feb 28 00:15:12 2026 -0600
+
+    Change from stack to list
+
+[33mcommit 0c0aa22b8a61e731344472c406db3de061ccc37b[m
+Author: Ben <benjaminkoff@gmail.com>
+Date:   Wed Feb 25 18:59:37 2026 -0600
+
+    In the middle of this but have to go
+
+[33mcommit fc8e271a287efeed76f31f7dbd0885715b6cf1f5[m
+Author: Ben <benjaminkoff@gmail.com>
+Date:   Wed Feb 25 16:51:51 2026 -0600
+
+    Bishop is pretty much wrapped up, next we'll extend the same logic to each of the other pieces
+
+[33mcommit a50fa78be39652fc58f82316b234fa0200cea931[m
+Author: Ben <benjaminkoff@gmail.com>
+Date:   Wed Feb 25 14:18:38 2026 -0600
+
+    Temporary holder
+
+[33mcommit 44870aec948353f3026d069f246cc222f87a6d69[m
+Author: Ben <benjaminkoff@gmail.com>
+Date:   Wed Feb 25 13:24:08 2026 -0600
+
+    Fixed board issue, fixed naming style, working on individual pieces
+
+[33mcommit d3ecb9768a26cb3ad55b47447249ede447716b5f[m
+Author: Ben <benjaminkoff@gmail.com>
+Date:   Wed Feb 25 00:08:50 2026 -0600
+
+    We have some objects, more to come soon
+
+[33mcommit 738540b95c8e066c95010db4ed7a64c37cbc5800[m
+Author: Ben <benjaminkoff@gmail.com>
+Date:   Tue Feb 24 21:07:52 2026 -0600
+
+    Going for a walk with MG, have to save the little amount of progress I have
+
+[33mcommit 59f36b4a63e671ba1f3c56800afdc4d26fb8cbff[m
+Author: KoffBen <146195832+KoffBen@users.noreply.github.com>
+Date:   Tue Feb 24 19:04:45 2026 -0600
+
+    Initial commit
