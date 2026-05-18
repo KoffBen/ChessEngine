@@ -20,7 +20,7 @@ public:
 
 
 private:
-    Piece* pieces[];
+    Piece* pieces[24];
 };
 
 #endif //CHESSENGINE_COLOR_H

@@ -40,14 +40,7 @@ set(SOURCE_FILES
         include/newBoard.h
         include/Command/Command.h
         include/Core/Context.h
-        include/Command/MakeBishop.h
         include/NewGridPoint.h
-        include/Command/MakeKing.h
-        include/Command/MakeQueen.h
-        include/Command/MakeKnight.h
-        include/Command/MakeRook.h
-        include/Command/MakePawn.h
-        include/Command/DeletePiece.h
         src/Pieces/Queen.cpp
         src/Pieces/Pawn.cpp
         src/Pieces/Knight.cpp
@@ -55,6 +48,10 @@ set(SOURCE_FILES
         src/Command/DefaultBoard.cpp
         src/Command/MakeBishop.cpp
         src/Command/MakeRook.cpp
+        src/Command/MakeKing.cpp
+        src/Command/MakeKing.cpp
+        include/Command/MakePiece.h
+        src/Command/MakePiece.cpp
 )
 
 

@@ -25,7 +25,9 @@ public:
 
     void addPiece(Piece* piece);
 
-    Piece* getPiece(NewGridPoint pt);
+    void removePiece(NewGridPoint pt);
+
+    [[nodiscard]] Piece* getPiece(NewGridPoint pt);
 private:
     Piece* mBoard[8][8] = {};
 

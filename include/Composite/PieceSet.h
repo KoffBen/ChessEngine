@@ -19,6 +19,8 @@ public:
     //Adding pieces to the composite -- this actually resembles more of a mini interpreter
     void addPiece(const Piece* piece, bool color);
 
+    bool removePiece()
+
 private:
     Color black;
     Color white;
