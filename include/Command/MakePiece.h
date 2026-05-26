@@ -27,6 +27,10 @@ public:
     bool undo() override
     {
         Piece* tmpPiece = mContext->mSet->removePiece(mPt, mColor);
+        if (tmpPiece == nullptr)
+        {
+            return false;
+        }
         mContext->mBoard->removePiece(tmpPiece->getPos());
         delete tmpPiece;
         return true;

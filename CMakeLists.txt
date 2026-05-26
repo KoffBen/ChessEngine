@@ -52,6 +52,8 @@ set(SOURCE_FILES
         src/Command/MakeKing.cpp
         include/Command/MakePiece.h
         src/Command/MakePiece.cpp
+        src/Composite/PieceSet.cpp
+        src/Composite/Color.cpp
 )
 
 

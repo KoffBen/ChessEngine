@@ -11,7 +11,7 @@ class PieceSet
 {
 public:
     //Constructor to initialize the colors, not putting anything in
-    PieceSet();
+    PieceSet() :
 
     //Deep Destruction
     ~PieceSet();
@@ -19,7 +19,7 @@ public:
     //Adding pieces to the composite -- this actually resembles more of a mini interpreter
     void addPiece(const Piece* piece, bool color);
 
-    bool removePiece()
+    Piece* removePiece(const NewGridPoint& pt, const bool& color);
 
 private:
     Color black;
