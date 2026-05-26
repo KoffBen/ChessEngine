@@ -5,15 +5,24 @@
 
 Color::~Color()
 {
-    std::for_each(pieces, pieces + 24, [](Piece* tmp) {delete tmp;});
+    std::for_each(pieces.begin(), pieces.end(), [](Piece* tmp) {delete tmp;});
 }
 
-void Color::addPiece(const Piece* piece)
+bool Color::addPiece(Piece* piece)
 {
-    pieces.insert()
+    return pieces.insert(piece).second;
 }
 
-Piece* Color::removePiece(const NewGridPoint& pt)
+bool Color::removePiece(Piece* piece)
 {
+    return pieces.erase(piece);
+}
 
+bool Color::visitColor(Visitor& visitor)
+{
+    std::for_each(pieces.begin(), pieces.end(), [&visitor](Piece* tmp)
+    {
+        tmp->accept(visitor);
+    });
+    return true;
 }

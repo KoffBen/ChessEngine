@@ -5,15 +5,20 @@
 #ifndef CHESSENGINE_NEWBOARD_H
 #define CHESSENGINE_NEWBOARD_H
 
+#include "CommandFactory.h"
+#include "Core/Context.h"
 #include "pieces/Piece.h"
 
 class Piece;
 
-//Called NewBoard for the time being because it's replacing Board but I want to leave that code intact for smooth transition
+//Called NewBoard for the time being because it's replacing Board, but I want to leave that code intact for smooth transition
 class NewBoard
 {
 public:
-    NewBoard() = default;
+    NewBoard() : mContext(this, new PieceSet()), mFactory(mContext), eval(0)
+    {
+
+    }
 
     //Deep Delete -- wait we're deep deleting these twice. Hmm. Okay we'll delete from the composite when we kill the interface
     ~NewBoard() = default;
@@ -21,15 +26,19 @@ public:
     void defaultSetup();
 
     //IMPORTANT: This is to be adapted with UCI Specs
-    void givenSetup();
+    bool givenSetup(std::string& placement);
 
-    void addPiece(Piece* piece);
+    bool addPiece(Piece* piece);
 
-    void removePiece(NewGridPoint pt);
+    bool removePiece(Piece* piece, NewGridPoint pt);
 
     [[nodiscard]] Piece* getPiece(NewGridPoint pt);
 private:
+    Context mContext;
+
     Piece* mBoard[8][8] = {};
+
+    CommandFactory mFactory;
 
     double eval;
 };

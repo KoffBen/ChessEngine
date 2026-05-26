@@ -4,7 +4,7 @@
 
 #ifndef CHESSENGINE_CONTEXT_H
 #define CHESSENGINE_CONTEXT_H
-#include "../newBoard.h"
+#include "../NewBoard.h"
 #include "../Composite/PieceSet.h"
 
 class Context
@@ -12,6 +12,10 @@ class Context
 public:
     Context(NewBoard* board, PieceSet* set) : mBoard(board), mSet(set)
     {
+    }
+    ~Context()
+    {
+        delete mSet;
     }
     NewBoard* mBoard;
     PieceSet* mSet;

@@ -36,27 +36,8 @@ public:
         return mPt;
     }
 
-    bool setSetLoc(const int sl)
-    {
-        if (setLoc == -1)
-        {
-            setLoc = sl;
-            return true;
-        }
-        return false;
-    }
-
-    [[nodiscard]] int getSetLoc() const
-    {
-        if (setLoc == -1)
-        {
-            throw std::runtime_error("Trying to access an unset variable");
-        }
-        return setLoc;
-    }
 private:
     NewGridPoint mPt;
-    int setLoc = -1;
 };
 
 #endif //CHESSENGINE_PIECE_H

@@ -14,20 +14,19 @@ class Color
 {
 public:
     //Constructor to initialize the array
-    Color() : pieces(), index(0)
-    {
-
-    }
+    Color() = default;
 
     //Deep Destruction
     ~Color();
 
-    void addPiece(const Piece* piece);
+    bool addPiece(Piece* piece);
 
-    Piece* removePiece(const NewGridPoint& pt);
+    bool removePiece(Piece* piece);
+
+    bool visitColor(Visitor& visitor);
 
 private:
-    std::set<int, Piece*> pieces;
+    std::set<Piece*> pieces;
 };
 
 #endif //CHESSENGINE_COLOR_H

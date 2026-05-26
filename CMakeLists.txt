@@ -54,6 +54,10 @@ set(SOURCE_FILES
         src/Command/MakePiece.cpp
         src/Composite/PieceSet.cpp
         src/Composite/Color.cpp
+        src/NewBoard.cpp
+        include/CommandFactory.h
+        src/CommandFactory.cpp
+        src/Pieces/Rook.cpp
 )
 
 
