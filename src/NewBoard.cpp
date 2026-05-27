@@ -14,28 +14,32 @@ bool NewBoard::defaultSetup()
 bool NewBoard::givenSetup(std::string placement, bool standard)
 {
     if (!standard) if (!checkValidSetup(placement)) return false;
-    bool success = true;
     NewGridPoint pt(0, 7);
     for (char i : placement)
     {
         if (i > 48 && i < 57)
         {
             pt.x += i - 48;
+        } else if (i == '/')
+        {
+            pt.x = 0;
+            pt.y -= 1;
         } else
         {
             Command* tmp = nullptr;
-            tmp = mFactory.makeCommand(i, pt, std::isupper(i));
+            tmp = mFactory.makeCommand(tolower(i), pt, std::isupper(i));
             if (tmp == nullptr)
             {
                 return false;
             }
             if (!tmp->execute())
             {
-                success = false;
+                return false;
             }
+            pt.x += 1;
         }
     }
-    return success;
+    return true;
 }
 
 bool NewBoard::addPiece(Piece* piece)

@@ -15,7 +15,7 @@ namespace {
     {
         auto gameBoard = NewBoard();
         EXPECT_NO_THROW(
-            std::cout<<"Hello";
+            gameBoard.defaultSetup();
         );
     }
 }
