@@ -13,7 +13,7 @@ class Board;
 class Piece {
 
 public:
-    explicit Piece(const NewGridPoint pt) : mPt(pt)
+    explicit Piece(const NewGridPoint pt, const bool color) : mColor(color), mPt(pt)
     {
 
     }
@@ -32,7 +32,13 @@ public:
         return mPt;
     }
 
+    bool getColor() const
+    {
+        return mColor;
+    }
+
 private:
+    bool mColor;
     NewGridPoint mPt;
 };
 

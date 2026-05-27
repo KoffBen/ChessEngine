@@ -25,7 +25,7 @@ public:
     //This Command needs to make a rook piece, put it in the desired location on the board
     bool execute() override
     {
-        mPiece = new PieceType(mPt);
+        mPiece = new PieceType(mPt, mColor);
         if (!mContext->mBoard->addPiece(mPiece))
         {
             return false;

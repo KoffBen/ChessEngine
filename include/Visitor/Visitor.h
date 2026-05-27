@@ -11,6 +11,7 @@ class Knight;
 class King;
 class Queen;
 class Pawn;
+class NewBoard;
 
 class Visitor
 {
@@ -30,6 +31,8 @@ public:
     virtual void visit(const King& king) const = 0;
 
     virtual void visit(const Pawn& pawn) const = 0;
+
+    virtual void visit(const NewBoard& board) const = 0;
 };
 
 #endif //CHESSENGINE_VISITOR_H

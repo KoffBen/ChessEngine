@@ -9,7 +9,7 @@
 class Pawn : public Piece {
 public:
     //Default Constructor
-    explicit Pawn(const NewGridPoint pt) : Piece(pt)
+    explicit Pawn(const NewGridPoint pt, const bool color) : Piece(pt, color)
     {
 
     }

@@ -9,7 +9,7 @@
 class Rook : public Piece {
 public:
     //Default Constructor
-    explicit Rook(const NewGridPoint pt) : Piece(pt)
+    explicit Rook(const NewGridPoint pt, const bool color) : Piece(pt, color)
     {
 
     }

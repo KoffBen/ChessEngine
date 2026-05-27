@@ -34,9 +34,11 @@ public:
 
     bool removePiece(Piece* piece, NewGridPoint pt);
 
-    [[nodiscard]] Piece* getPiece(NewGridPoint pt);
+    [[nodiscard]] Piece* getPiece(NewGridPoint pt) const;
 
     bool clear();
+
+    void accept(const Visitor& visitor) const;
 private:
     Context mContext;
 

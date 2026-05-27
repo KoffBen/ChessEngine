@@ -20,6 +20,8 @@ public:
     void visit(const King& king) const override;
 
     void visit(const Pawn& pawn) const override;
+
+    void visit(const NewBoard& board) const override;
 };
 
 #endif //CHESSENGINE_PRINTVISITOR_H

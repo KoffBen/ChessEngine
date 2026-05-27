@@ -109,3 +109,8 @@ bool NewBoard::checkValidSetup(std::string setup)
     }
     return countSections == 7 && countDigits == 8;
 }
+
+void NewBoard::accept(const Visitor& visitor) const
+{
+    visitor.visit(*this);
+}

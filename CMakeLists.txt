@@ -49,6 +49,7 @@ set(SOURCE_FILES
         src/Pieces/Rook.cpp
         tests/test.cpp
         src/Command/Command.cpp
+        src/Visitor/PrintVisitor.cpp
 )
 
 

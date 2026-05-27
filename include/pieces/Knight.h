@@ -9,7 +9,7 @@
 class Knight : public Piece {
 public:
     //Default Constructor
-    explicit Knight(const NewGridPoint pt) : Piece(pt)
+    explicit Knight(const NewGridPoint pt, const bool color) : Piece(pt, color)
     {
 
     }

@@ -9,7 +9,7 @@
 class Bishop : public Piece {
 public:
     //Default Constructor
-    explicit Bishop(const NewGridPoint pt) : Piece(pt)
+    explicit Bishop(const NewGridPoint pt, const bool color) : Piece(pt, color)
     {
 
     }
