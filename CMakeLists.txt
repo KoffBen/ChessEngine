@@ -23,15 +23,9 @@ include_directories(./include)
 #Define the source files and dependencies
 set(SOURCE_FILES
     tests/main.cpp
-        include/Square.h
         include/pieces/Piece.h
-        include/GridPoint.h
-        include/Board.h
         include/pieces/Bishop.h
-        src/GridPoint.cpp
         src/Pieces/Bishop.cpp
-        src/Board.cpp
-        src/Square.cpp
         src/Pieces/King.cpp
         include/Visitor/visitor.h
         include/Visitor/PrintVisitor.h
@@ -46,18 +40,15 @@ set(SOURCE_FILES
         src/Pieces/Knight.cpp
         include/Command/DefaultBoard.h
         src/Command/DefaultBoard.cpp
-        src/Command/MakeBishop.cpp
-        src/Command/MakeRook.cpp
-        src/Command/MakeKing.cpp
-        src/Command/MakeKing.cpp
         include/Command/MakePiece.h
-        src/Command/MakePiece.cpp
         src/Composite/PieceSet.cpp
         src/Composite/Color.cpp
         src/NewBoard.cpp
         include/CommandFactory.h
         src/CommandFactory.cpp
         src/Pieces/Rook.cpp
+        tests/test.cpp
+        src/Command/Command.cpp
 )
 
 

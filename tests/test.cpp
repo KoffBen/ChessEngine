@@ -2,7 +2,9 @@
 // Created by benja on 3/1/2026.
 //
 
-#include "Board.h"
+#include <iostream>
+
+#include "../include/NewBoard.h"
 #include <gtest/gtest.h>
 
 namespace {
@@ -11,9 +13,9 @@ namespace {
 
     TEST_F(TestEngine, Compilation)
     {
-        auto gameBoard = Board();
-        EXPECT_NO_THROW({
-            std::cout<<gameBoard.toString();
-        });
+        auto gameBoard = NewBoard();
+        EXPECT_NO_THROW(
+            std::cout<<"Hello";
+        );
     }
 }

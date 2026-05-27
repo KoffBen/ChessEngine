@@ -6,6 +6,7 @@
 #define CHESSENGINE_MAKEPIECE_H
 #include "Command.h"
 #include "../NewGridPoint.h"
+#include "NewBoard.h"
 #include "pieces/Rook.h"
 #include "pieces/Knight.h"
 #include "pieces/Bishop.h"
@@ -14,13 +15,13 @@
 #include "pieces/Pawn.h"
 
 template <typename PieceType>
-class MakePiece : public Command
-{
+class MakePiece : public Command {
 public:
-    MakePiece(Context* context, const NewGridPoint& pt, const bool color) : Command(context), mPt(pt), mColor(color)
+    MakePiece(Context* context, const NewGridPoint& pt, const bool color) : Command(context), mPt(pt), mColor(color),
+                                                                            mPiece(nullptr)
     {
-
     }
+
     //This Command needs to make a rook piece, put it in the desired location on the board
     bool execute() override
     {

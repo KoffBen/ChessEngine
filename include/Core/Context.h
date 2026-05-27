@@ -4,9 +4,10 @@
 
 #ifndef CHESSENGINE_CONTEXT_H
 #define CHESSENGINE_CONTEXT_H
-#include "../NewBoard.h"
+//#include "../NewBoard.h"
 #include "../Composite/PieceSet.h"
 
+class NewBoard;
 class Context
 {
 public:

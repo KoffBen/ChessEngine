@@ -5,8 +5,10 @@
 #ifndef CHESSENGINE_NEWBOARD_H
 #define CHESSENGINE_NEWBOARD_H
 
-#include "CommandFactory.h"
+#include <string>
+
 #include "Core/Context.h"
+#include "CommandFactory.h"
 #include "pieces/Piece.h"
 
 class Piece;
@@ -15,7 +17,7 @@ class Piece;
 class NewBoard
 {
 public:
-    NewBoard() : mContext(this, new PieceSet()), mFactory(mContext), eval(0)
+    NewBoard() : mContext(this, new PieceSet()), mFactory(&mContext), eval(0)
     {
 
     }
@@ -23,16 +25,18 @@ public:
     //Deep Delete -- wait we're deep deleting these twice. Hmm. Okay we'll delete from the composite when we kill the interface
     ~NewBoard() = default;
 
-    void defaultSetup();
+    bool defaultSetup();
 
     //IMPORTANT: This is to be adapted with UCI Specs
-    bool givenSetup(std::string& placement);
+    bool givenSetup(std::string placement, bool standard);
 
     bool addPiece(Piece* piece);
 
     bool removePiece(Piece* piece, NewGridPoint pt);
 
     [[nodiscard]] Piece* getPiece(NewGridPoint pt);
+
+    bool clear();
 private:
     Context mContext;
 
@@ -41,6 +45,8 @@ private:
     CommandFactory mFactory;
 
     double eval;
+
+    bool checkValidSetup(std::string setup);
 };
 
 #endif //CHESSENGINE_NEWBOARD_H

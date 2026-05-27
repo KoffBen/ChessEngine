@@ -3,8 +3,14 @@
 //
 
 #include "../../include/Command/DefaultBoard.h"
+#include "NewBoard.h"
 
 bool DefaultBoard::execute()
 {
+    return mContext->mBoard->defaultSetup();
+}
 
+bool DefaultBoard::undo()
+{
+    return mContext->mBoard->clear();
 }

@@ -14,6 +14,8 @@ public:
 
     }
     bool execute() override;
+
+    bool undo() override;
 };
 
 #endif //CHESSENGINE_DEFAULTBOARD_H

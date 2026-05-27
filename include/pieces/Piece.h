@@ -5,11 +5,7 @@
 #ifndef CHESSENGINE_PIECE_H
 #define CHESSENGINE_PIECE_H
 
-#include <list>
-#include <stdexcept>
-
 #include "NewGridPoint.h"
-#include "../GridPoint.h"
 #include "Visitor/Visitor.h"
 
 class Board;
