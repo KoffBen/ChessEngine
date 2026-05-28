@@ -31,10 +31,10 @@ set(SOURCE_FILES
         include/Visitor/PrintVisitor.h
         include/Composite/PieceSet.h
         include/Composite/Color.h
-        include/newBoard.h
+        include/Board.h
         include/Command/Command.h
         include/Core/Context.h
-        include/NewGridPoint.h
+        include/GridPoint.h
         src/Pieces/Queen.cpp
         src/Pieces/Pawn.cpp
         src/Pieces/Knight.cpp
@@ -43,13 +43,15 @@ set(SOURCE_FILES
         include/Command/MakePiece.h
         src/Composite/PieceSet.cpp
         src/Composite/Color.cpp
-        src/NewBoard.cpp
+        src/Board.cpp
         include/CommandFactory.h
         src/CommandFactory.cpp
         src/Pieces/Rook.cpp
         tests/test.cpp
         src/Command/Command.cpp
         src/Visitor/PrintVisitor.cpp
+        include/Command/MovePiece.h
+        src/Command/MovePiece.cpp
 )
 
 

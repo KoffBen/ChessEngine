@@ -5,8 +5,8 @@
 #ifndef CHESSENGINE_MAKEPIECE_H
 #define CHESSENGINE_MAKEPIECE_H
 #include "Command.h"
-#include "../NewGridPoint.h"
-#include "NewBoard.h"
+#include "../GridPoint.h"
+#include "Board.h"
 #include "pieces/Rook.h"
 #include "pieces/Knight.h"
 #include "pieces/Bishop.h"

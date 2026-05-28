@@ -3,7 +3,7 @@
 //
 
 #include "../../include/Command/DefaultBoard.h"
-#include "NewBoard.h"
+#include "Board.h"
 
 bool DefaultBoard::execute()
 {

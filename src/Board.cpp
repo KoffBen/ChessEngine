@@ -2,7 +2,7 @@
 // Created by benja on 5/26/2026.
 //
 
-#include "NewBoard.h"
+#include "Board.h"
 
 #include "Command/MakePiece.h"
 

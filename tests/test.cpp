@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-#include "../include/NewBoard.h"
+#include "../include/Board.h"
 #include <gtest/gtest.h>
 
 #include "Visitor/PrintVisitor.h"
