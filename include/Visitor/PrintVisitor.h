@@ -4,11 +4,18 @@
 
 #ifndef CHESSENGINE_PRINTVISITOR_H
 #define CHESSENGINE_PRINTVISITOR_H
+#include <iosfwd>
+
 #include "Visitor.h"
 
-class PrintVisitor : Visitor
+class PrintVisitor : public Visitor
 {
 public:
+    PrintVisitor(std::ostream& os) : os(os)
+    {
+
+    }
+
     void visit(const Rook& rook) const override;
 
     void visit(const Knight& knight) const override;
@@ -22,6 +29,8 @@ public:
     void visit(const Pawn& pawn) const override;
 
     void visit(const NewBoard& board) const override;
+private:
+    std::ostream& os;
 };
 
 #endif //CHESSENGINE_PRINTVISITOR_H

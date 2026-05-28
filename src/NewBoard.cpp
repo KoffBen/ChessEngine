@@ -63,7 +63,7 @@ bool NewBoard::removePiece(Piece* piece, NewGridPoint pt)
     return true;
 }
 
-Piece* NewBoard::getPiece(NewGridPoint pt)
+Piece* NewBoard::getPiece(NewGridPoint pt) const
 {
     return mBoard[pt.x][pt.y];
 }
@@ -82,7 +82,7 @@ bool NewBoard::clear()
     return true;
 }
 
-bool NewBoard::checkValidSetup(std::string setup)
+bool NewBoard::checkValidSetup(const std::string& setup)
 {
     int countDigits = 0;
     int countSections = 0;
@@ -110,7 +110,7 @@ bool NewBoard::checkValidSetup(std::string setup)
     return countSections == 7 && countDigits == 8;
 }
 
-void NewBoard::accept(const Visitor& visitor) const
+void NewBoard::accept(Visitor& visitor) const
 {
     visitor.visit(*this);
 }

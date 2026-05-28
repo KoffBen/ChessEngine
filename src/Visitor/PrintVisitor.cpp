@@ -13,77 +13,97 @@
 #include "pieces/Queen.h"
 #include "pieces/Rook.h"
 
-void Visitor::visit(const Rook& rook) const
+void PrintVisitor::visit(const Rook& rook) const
 {
     if (rook.getColor())
     {
-        std::cout<<"r";
+        os << "r";
     } else
     {
-        std::cout<<"R";
+        os << "R";
     }
 }
 
-void Visitor::visit(const Knight& knight) const
+void PrintVisitor::visit(const Knight& knight) const
 {
     if (knight.getColor())
     {
-        std::cout<<"n";
+        os << "n";
     } else
     {
-        std::cout<<"N";
+        os << "N";
     }
 }
 
-void Visitor::visit(const Bishop& bishop) const
+void PrintVisitor::visit(const Bishop& bishop) const
 {
     if (bishop.getColor())
     {
-        std::cout<<"b";
+        os << "b";
     } else
     {
-        std::cout<<"B";
+        os << "B";
     }
 }
 
-void Visitor::visit(const Queen& queen) const
+void PrintVisitor::visit(const Queen& queen) const
 {
     if (queen.getColor())
     {
-        std::cout<<"q";
+        os << "q";
     } else
     {
-        std::cout<<"Q";
+        os << "Q";
     }
 }
 
-void Visitor::visit(const King& king) const
+void PrintVisitor::visit(const King& king) const
 {
     if (king.getColor())
     {
-        std::cout<<"k";
+        os << "k";
     } else
     {
-        std::cout<<"K";
+        os << "K";
     }
 }
 
-void Visitor::visit(const Pawn& pawn) const
+void PrintVisitor::visit(const Pawn& pawn) const
 {
     if (pawn.getColor())
     {
-        std::cout<<"p";
+        os << "p";
     } else
     {
-        std::cout<<"P";
+        os << "P";
     }
 }
 
-void Visitor::visit(const NewBoard& board) const
+void PrintVisitor::visit(const NewBoard& board) const
 {
-    NewGridPoint pt = NewGridPoint(0, 7);
+    auto newVisit = PrintVisitor(os);
+    auto pt = NewGridPoint(0, 7);
+    os << "\n" << "---------------------------------" << "\n";
+    os << "| ";
     while (pt.y >= 0)
     {
-        visit(*board.getPiece(pt));
+        Piece* tmp = board.getPiece(pt);
+        if (tmp != nullptr)
+        {
+            tmp->accept(newVisit);
+        } else
+        {
+            os << " ";
+        }
+        if (pt.x < 7) os << " | ";
+        ++pt.x;
+        if (pt.x == 8)
+        {
+            pt.x = 0;
+            --pt.y;
+            os << " |";
+            os << "\n" << "---------------------------------" << "\n";
+            if (pt.y >= 0) os << "| ";
+        }
     }
 }

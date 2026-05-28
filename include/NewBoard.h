@@ -38,7 +38,7 @@ public:
 
     bool clear();
 
-    void accept(const Visitor& visitor) const;
+    void accept(Visitor& visitor) const;
 private:
     Context mContext;
 
@@ -48,7 +48,7 @@ private:
 
     double eval;
 
-    bool checkValidSetup(std::string setup);
+    static bool checkValidSetup(const std::string& setup);
 };
 
 #endif //CHESSENGINE_NEWBOARD_H
