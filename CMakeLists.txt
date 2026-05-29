@@ -52,6 +52,7 @@ set(SOURCE_FILES
         src/Visitor/PrintVisitor.cpp
         include/Command/MovePiece.h
         src/Command/MovePiece.cpp
+        include/PassKey/PassKey.h
 )
 
 

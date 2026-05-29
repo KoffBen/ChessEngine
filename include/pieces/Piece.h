@@ -8,12 +8,10 @@
 #include "GridPoint.h"
 #include "Visitor/Visitor.h"
 
-class Board;
-
 class Piece {
 
 public:
-    explicit Piece(const NewGridPoint pt, const bool color) : mColor(color), mPt(pt)
+    explicit Piece(const GridPoint pt, const bool color) : mColor(color), mPt(pt)
     {
 
     }
@@ -22,12 +20,12 @@ public:
 
     virtual void accept(Visitor& visitor) const = 0;
 
-    void setPos(const NewGridPoint pt)
+    void setPos(const GridPoint pt)
     {
         mPt = pt;
     }
 
-    [[nodiscard]] NewGridPoint getPos() const
+    [[nodiscard]] GridPoint getPos() const
     {
         return mPt;
     }
@@ -39,7 +37,7 @@ public:
 
 private:
     bool mColor;
-    NewGridPoint mPt;
+    GridPoint mPt;
 };
 
 #endif //CHESSENGINE_PIECE_H

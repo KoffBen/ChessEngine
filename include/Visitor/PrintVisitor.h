@@ -28,7 +28,7 @@ public:
 
     void visit(const Pawn& pawn) const override;
 
-    void visit(const NewBoard& board) const override;
+    void visit(const Board& board) const override;
 private:
     std::ostream& os;
 };

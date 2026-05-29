@@ -79,10 +79,10 @@ void PrintVisitor::visit(const Pawn& pawn) const
     }
 }
 
-void PrintVisitor::visit(const NewBoard& board) const
+void PrintVisitor::visit(const Board& board) const
 {
     auto newVisit = PrintVisitor(os);
-    auto pt = NewGridPoint(0, 7);
+    auto pt = GridPoint(0, 7);
     os << "\n" << "---------------------------------" << "\n";
     os << "| ";
     while (pt.y >= 0)

@@ -6,13 +6,15 @@
 #define CHESSENGINE_MOVEPIECE_H
 
 #include "Command/Command.h"
+#include "PassKey/PassKey.h"
 
 class MovePiece : public Command
 {
 public:
-    explicit MovePiece(Context* context, Piece* piece, NewGridPoint& pt) : Command(context), mPiece(piece), endLoc(pt)
+    explicit MovePiece(Context* context, Piece* piece, GridPoint& pt) : Command(context), mPiece(piece),
+                                                                        startLoc(piece->getPos()), endLoc(pt),
+                                                                           makeOccPiece(nullptr)
     {
-
     }
 
     bool execute() override;
@@ -21,7 +23,10 @@ public:
 
 private:
     Piece* mPiece;
-    NewGridPoint endLoc;
+    GridPoint startLoc;
+    GridPoint endLoc;
+    Command* makeOccPiece;
+    PassKey key = PassKey();
     bool checkValidMove();
 };
 

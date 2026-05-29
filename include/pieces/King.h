@@ -9,7 +9,7 @@
 class King : public Piece {
 public:
     //Default Constructor
-    explicit King(const NewGridPoint pt, const bool color) : Piece(pt, color)
+    explicit King(const GridPoint pt, const bool color) : Piece(pt, color)
     {
 
     }

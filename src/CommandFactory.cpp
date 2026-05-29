@@ -5,7 +5,7 @@
 #include "Command/MakePiece.h"
 #include "Core/Context.h"
 
-Command* CommandFactory::makeCommand(char pieceType, NewGridPoint& pos, bool color)
+Command* CommandFactory::makeCommand(char pieceType, const GridPoint& pos, bool color)
 {
     Command* mCommand;
     switch (pieceType)

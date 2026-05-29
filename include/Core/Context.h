@@ -7,18 +7,18 @@
 //#include "../NewBoard.h"
 #include "../Composite/PieceSet.h"
 
-class NewBoard;
+class Board;
 class Context
 {
 public:
-    Context(NewBoard* board, PieceSet* set) : mBoard(board), mSet(set)
+    Context(Board* board, PieceSet* set) : mBoard(board), mSet(set)
     {
     }
     ~Context()
     {
         delete mSet;
     }
-    NewBoard* mBoard;
+    Board* mBoard;
     PieceSet* mSet;
 };
 

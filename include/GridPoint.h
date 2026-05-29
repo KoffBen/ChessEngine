@@ -6,14 +6,14 @@
 #define CHESSENGINE_NEWGRIDPOINT_H
 //I honestly don't really care about abstraction or safety here.
 
-class NewGridPoint
+class GridPoint
 {
 public:
-    NewGridPoint() : x(0), y(0)
+    GridPoint() : x(0), y(0)
     {
 
     }
-    NewGridPoint(int x, int y) : x(x), y(y)
+    GridPoint(int x, int y) : x(x), y(y)
     {
 
     }

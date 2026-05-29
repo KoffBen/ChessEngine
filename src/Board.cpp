@@ -6,15 +6,15 @@
 
 #include "Command/MakePiece.h"
 
-bool NewBoard::defaultSetup()
+bool Board::defaultSetup()
 {
     return givenSetup("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR", true);
 }
 //Hold off for now, until we figure out the right format from UCI
-bool NewBoard::givenSetup(std::string placement, bool standard)
+bool Board::givenSetup(std::string placement, bool standard)
 {
     if (!standard) if (!checkValidSetup(placement)) return false;
-    NewGridPoint pt(0, 7);
+    GridPoint pt(0, 7);
     for (char i : placement)
     {
         if (i > 48 && i < 57)
@@ -42,9 +42,9 @@ bool NewBoard::givenSetup(std::string placement, bool standard)
     return true;
 }
 
-bool NewBoard::addPiece(Piece* piece)
+bool Board::addPiece(Piece* piece)
 {
-    NewGridPoint pt = piece->getPos();
+    GridPoint pt = piece->getPos();
     if (mBoard[pt.x][pt.y] != nullptr)
     {
         return false;
@@ -53,7 +53,7 @@ bool NewBoard::addPiece(Piece* piece)
     return true;
 }
 
-bool NewBoard::removePiece(Piece* piece, NewGridPoint pt)
+bool Board::removePiece(Piece* piece, GridPoint pt)
 {
     if (mBoard[pt.x][pt.y] == nullptr || mBoard[pt.x][pt.y] != piece)
     {
@@ -63,12 +63,12 @@ bool NewBoard::removePiece(Piece* piece, NewGridPoint pt)
     return true;
 }
 
-Piece* NewBoard::getPiece(NewGridPoint pt) const
+Piece* Board::getPiece(GridPoint pt) const
 {
     return mBoard[pt.x][pt.y];
 }
 
-bool NewBoard::clear()
+bool Board::clear()
 {
     delete mContext.mSet;
     mContext.mSet = new PieceSet();
@@ -82,7 +82,7 @@ bool NewBoard::clear()
     return true;
 }
 
-bool NewBoard::checkValidSetup(const std::string& setup)
+bool Board::checkValidSetup(const std::string& setup)
 {
     int countDigits = 0;
     int countSections = 0;
@@ -110,7 +110,15 @@ bool NewBoard::checkValidSetup(const std::string& setup)
     return countSections == 7 && countDigits == 8;
 }
 
-void NewBoard::accept(Visitor& visitor) const
+void Board::accept(Visitor& visitor) const
 {
     visitor.visit(*this);
+}
+
+bool Board::movePiece([[maybe_unused]]PassKey& key, const GridPoint& prevLoc, const GridPoint& newLoc, Piece* movingPiece)
+{
+    if (getPiece(newLoc) != nullptr || getPiece(prevLoc) != movingPiece) return false;
+    mBoard[prevLoc.x][prevLoc.y] = nullptr;
+    mBoard[newLoc.x][newLoc.y] = movingPiece;
+    return true;
 }

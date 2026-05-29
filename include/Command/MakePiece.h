@@ -17,7 +17,7 @@
 template <typename PieceType>
 class MakePiece : public Command {
 public:
-    MakePiece(Context* context, const NewGridPoint& pt, const bool color) : Command(context), mPt(pt), mColor(color),
+    MakePiece(Context* context, const GridPoint& pt, const bool color) : Command(context), mPt(pt), mColor(color),
                                                                             mPiece(nullptr)
     {
     }
@@ -57,7 +57,7 @@ public:
         return true;
     }
 private:
-    NewGridPoint mPt;
+    GridPoint mPt;
     bool mColor;
     Piece* mPiece;
 };

@@ -9,7 +9,7 @@
 class Queen : public Piece {
 public:
     //Default Constructor
-    explicit Queen(const NewGridPoint pt, const bool color) : Piece(pt, color)
+    explicit Queen(const GridPoint pt, const bool color) : Piece(pt, color)
     {
 
     }

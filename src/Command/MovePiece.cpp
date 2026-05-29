@@ -3,18 +3,37 @@
 //
 #include "Command/MovePiece.h"
 
+#include <sstream>
+
+#include "CommandFactory.h"
 #include "Board.h"
+#include "Visitor/PrintVisitor.h"
 
 bool MovePiece::execute()
 {
     if (!checkValidMove()) return false;
-    Piece* tmp = mContext->mBoard->getPiece(endLoc);
-    if (tmp == nullptr) mContext->mBoard
+    Piece* occPiece = mContext->mBoard->getPiece(endLoc);
+    if (occPiece != nullptr)
+    {
+        std::stringstream ss;
+        auto tmpVisitor = PrintVisitor(ss);
+        occPiece->accept(tmpVisitor);
+        auto newFactory = CommandFactory(mContext);
+        makeOccPiece = newFactory.makeCommand(tolower(ss.str()[0]), endLoc, occPiece->getColor());
+        if (!makeOccPiece->undo())
+        {
+            return false;
+        }
+    }
+    if (!mContext->mBoard->movePiece(key, startLoc, endLoc, mPiece)) return false;
+    mPiece->setPos(endLoc);
     return true;
 }
 
 bool MovePiece::undo()
 {
+    if (!mContext->mBoard->movePiece(key, endLoc, startLoc, mPiece)) return false;
+    if (makeOccPiece != nullptr) makeOccPiece->execute();
     return true;
 }
 

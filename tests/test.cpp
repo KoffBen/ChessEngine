@@ -7,6 +7,7 @@
 #include "../include/Board.h"
 #include <gtest/gtest.h>
 
+#include "Command/MovePiece.h"
 #include "Visitor/PrintVisitor.h"
 
 namespace {
@@ -16,11 +17,23 @@ namespace {
     TEST_F(TestEngine, Compilation)
     {
         std::stringstream testString;
-        auto gameBoard = NewBoard();
+        auto gameBoard = Board();
         auto printVisitor = PrintVisitor(std::cout);
         EXPECT_NO_THROW(
             gameBoard.defaultSetup();
             gameBoard.accept(printVisitor);
+        );
+    }
+
+    TEST_F(TestEngine, Movement)
+    {
+        std::stringstream testString;
+        auto gameBoard = Board();
+        auto printVisitor = PrintVisitor(std::cout);
+        EXPECT_NO_THROW(
+            gameBoard.defaultSetup();
+            gameBoard.accept(printVisitor);
+            auto movePawn = MovePiece();
         );
     }
 }
