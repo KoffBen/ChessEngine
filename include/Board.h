@@ -42,6 +42,8 @@ public:
     void accept(Visitor& visitor) const;
 
     bool movePiece(PassKey& key, const GridPoint& prevLoc, const GridPoint& newLoc, Piece* movingPiece);
+
+    Context* getContext();
 private:
     Context mContext;
 

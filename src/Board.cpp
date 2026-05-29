@@ -122,3 +122,8 @@ bool Board::movePiece([[maybe_unused]]PassKey& key, const GridPoint& prevLoc, co
     mBoard[newLoc.x][newLoc.y] = movingPiece;
     return true;
 }
+
+Context* Board::getContext()
+{
+    return &mContext;
+}

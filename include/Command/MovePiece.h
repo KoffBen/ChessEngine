@@ -11,8 +11,8 @@
 class MovePiece : public Command
 {
 public:
-    explicit MovePiece(Context* context, Piece* piece, GridPoint& pt) : Command(context), mPiece(piece),
-                                                                        startLoc(piece->getPos()), endLoc(pt),
+    explicit MovePiece(Context* context, Piece* piece, const GridPoint& endLoc) : Command(context), mPiece(piece),
+                                                                        startLoc(piece->getPos()), endLoc(endLoc),
                                                                            makeOccPiece(nullptr)
     {
     }
