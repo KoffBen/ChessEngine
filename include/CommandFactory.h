@@ -8,6 +8,7 @@
 class Command;
 class Context;
 class GridPoint;
+class Piece;
 
 class CommandFactory
 {
@@ -18,6 +19,8 @@ public:
     }
 
     Command* makeCommand(char pieceType, const GridPoint& pos, bool color);
+
+    Command* makeCommand(char pieceType, const GridPoint& pos, bool color, Piece* piece);
 private:
     Context* mContext;
 };

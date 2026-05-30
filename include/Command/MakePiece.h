@@ -17,15 +17,22 @@
 template <typename PieceType>
 class MakePiece : public Command {
 public:
-    MakePiece(Context* context, const GridPoint& pt, const bool color) : Command(context), mPt(pt), mColor(color),
-                                                                            mPiece(nullptr)
+    MakePiece(Context* context, const GridPoint& pt, const bool color) : MakePiece(context, pt, color, nullptr)
+    {
+    }
+
+    MakePiece(Context* context, const GridPoint& pt, const bool color, Piece* piece) : Command(context), mPt(pt), mColor(color),
+                                                                            mPiece(piece)
     {
     }
 
     //This Command needs to make a rook piece, put it in the desired location on the board
     bool execute() override
     {
-        mPiece = new PieceType(mPt, mColor);
+        if (mPiece == nullptr)
+        {
+            mPiece = new PieceType(mPt, mColor);
+        }
         if (!mContext->mBoard->addPiece(mPiece))
         {
             return false;

@@ -28,6 +28,7 @@ private:
     Command* makeOccPiece;
     PassKey key = PassKey();
     bool checkValidMove();
+    bool checkValidForPiece();
 };
 
 #endif //CHESSENGINE_MOVEPIECE_H

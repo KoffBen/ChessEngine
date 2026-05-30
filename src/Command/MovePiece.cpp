@@ -19,7 +19,7 @@ bool MovePiece::execute()
         auto tmpVisitor = PrintVisitor(ss);
         occPiece->accept(tmpVisitor);
         auto newFactory = CommandFactory(mContext);
-        makeOccPiece = newFactory.makeCommand(tolower(ss.str()[0]), endLoc, occPiece->getColor());
+        makeOccPiece = newFactory.makeCommand(tolower(ss.str()[0]), endLoc, occPiece->getColor(), occPiece);
         if (!makeOccPiece->undo())
         {
             return false;
@@ -42,5 +42,13 @@ bool MovePiece::checkValidMove()
     if (!endLoc.isValid() || mPiece == nullptr) return false;
     Piece* tmp = mContext->mBoard->getPiece(endLoc);
     if (tmp != nullptr) if (tmp->getColor() == mPiece->getColor()) return false;
-    return true;
+    return checkValidForPiece();
+}
+
+bool MovePiece::checkValidForPiece()
+{
+    std::stringstream ss;
+    auto tmpVisitor = PrintVisitor(ss);
+    mPiece->accept(tmpVisitor);
+    
 }

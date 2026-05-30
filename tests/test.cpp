@@ -36,18 +36,22 @@ namespace {
         Context* context = gameBoard.getContext();
 
         auto movePawn = MovePiece(context, gameBoard.getPiece(GridPoint(3, 1)), GridPoint(3, 3));
-        movePawn.execute();
+        EXPECT_TRUE(movePawn.execute());
         gameBoard.accept(printVisitor);
-        movePawn.undo();
+        EXPECT_TRUE(movePawn.undo());
         gameBoard.accept(printVisitor);
 
         auto moveQueen = MovePiece(context, gameBoard.getPiece(GridPoint(3, 0)), GridPoint(3, 7));
 
-        ASSERT_TRUE(
-            moveQueen.execute();
-        );
-        gameBoard.accept(printVisitor);
-        moveQueen.undo();
-        gameBoard.accept(printVisitor);
+        for (int i = 0; i < 10; ++i)
+        {
+            EXPECT_TRUE(moveQueen.execute());
+
+            gameBoard.accept(printVisitor);
+
+            EXPECT_TRUE(moveQueen.undo());
+
+            gameBoard.accept(printVisitor);
+        }
     }
 }
