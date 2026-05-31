@@ -27,8 +27,16 @@ private:
     GridPoint endLoc;
     Command* makeOccPiece;
     PassKey key = PassKey();
-    bool checkValidMove();
-    bool checkValidForPiece();
+
+    [[nodiscard]] bool checkValidMove() const;
+    [[nodiscard]] bool checkValidForPiece() const;
+
+    [[nodiscard]] bool checkRook() const;
+
+    [[nodiscard]] bool checkBishop() const;
+    [[nodiscard]] bool checkHelper(const GridPoint& adder) const;
+
+    [[nodiscard]] bool checkPawn() const;
 };
 
 #endif //CHESSENGINE_MOVEPIECE_H

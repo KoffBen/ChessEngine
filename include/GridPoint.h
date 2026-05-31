@@ -18,7 +18,49 @@ public:
 
     }
 
-    bool isValid() const
+    GridPoint(const GridPoint& rhs)
+    {
+        *this = rhs;
+    }
+
+    GridPoint& operator=(const GridPoint& rhs)
+    {
+        if (this == &rhs) return *this;
+
+        x = rhs.x;
+        y = rhs.y;
+
+        return *this;
+    }
+
+    bool operator==(const GridPoint& rhs) const
+    {
+        return (x == rhs.x) && (y == rhs.y);
+    }
+
+    bool operator!=(const GridPoint& rhs) const
+    {
+        return !(*this == rhs);
+    }
+
+
+    GridPoint operator+(const GridPoint& rhs) const
+    {
+        GridPoint newGP = *this;
+
+        newGP.x += rhs.x;
+        newGP.y += rhs.y;
+
+        return newGP;
+    }
+
+    GridPoint& operator+=(const GridPoint& rhs)
+    {
+        *this = *this + rhs;
+        return *this;
+    }
+
+    [[nodiscard]] bool isValid() const
     {
         return (x >= 0 && x < 8 && y >= 0 && y < 8);
     }

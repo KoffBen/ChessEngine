@@ -23,6 +23,17 @@ namespace {
             gameBoard.defaultSetup();
             gameBoard.accept(printVisitor);
         );
+        for (auto tmp = GridPoint(0, 0); tmp.x < 8; ++tmp.x)
+        {
+            for (tmp.y = 0; tmp.y < 8; ++tmp.y)
+            {
+                const Piece* tmpPiece = gameBoard.getPiece(tmp);
+                if (tmpPiece != nullptr)
+                {
+                    EXPECT_EQ(tmpPiece->getPos(), tmp);
+                }
+            }
+        }
     }
 
     TEST_F(TestEngine, Movement)
@@ -45,13 +56,68 @@ namespace {
 
         for (int i = 0; i < 10; ++i)
         {
-            EXPECT_TRUE(moveQueen.execute());
+            EXPECT_FALSE(moveQueen.execute());
 
-            gameBoard.accept(printVisitor);
+            //gameBoard.accept(printVisitor);
 
-            EXPECT_TRUE(moveQueen.undo());
+            EXPECT_FALSE(moveQueen.undo());
 
-            gameBoard.accept(printVisitor);
+            //gameBoard.accept(printVisitor);
         }
+
+        for (auto tmpGP = GridPoint(0, 0); tmpGP.x < 8; ++tmpGP.x)
+        {
+            for (tmpGP.y = 0; tmpGP.y < 8; ++tmpGP.y)
+            {
+                const Piece* tmpPiece = gameBoard.getPiece(tmpGP);
+                if (tmpPiece != nullptr)
+                {
+                    EXPECT_EQ(tmpPiece->getPos(), tmpGP);
+                }
+            }
+        }
+
+
+        int j = 0;
+        GridPoint tmp;
+        while (j < 8)
+        {
+            for (int i = 0; i < 8; ++i)
+            {
+                if (i % 5 != 1)
+                {
+                    for (tmp = GridPoint(0, 0); tmp.x < 8; ++tmp.x)
+                    {
+                        for (tmp.y = 0; tmp.y < 8; ++tmp.y)
+                        {
+                            auto movePiece = MovePiece(context, gameBoard.getPiece(GridPoint(i, j)), tmp);
+                            EXPECT_FALSE(movePiece.execute());
+                            EXPECT_FALSE(movePiece.undo());
+                        }
+                    }
+                } else
+                {
+                    for (tmp = GridPoint(0, 0); tmp.x < 8; ++tmp.x)
+                    {
+                        for (tmp.y = 0; tmp.y < 8; ++tmp.y)
+                        {
+                            auto movePiece = MovePiece(context, gameBoard.getPiece(GridPoint(i, j)), tmp);
+                            if (((j == 0 && tmp.y == 2) || (j == 7 && tmp.y == 5)) && (tmp.x == i - 1 || tmp.x == i + 1))
+                            {
+                                EXPECT_TRUE(movePiece.execute());
+                                EXPECT_TRUE(movePiece.undo());
+                            } else
+                            {
+                                EXPECT_FALSE(movePiece.execute());
+                                EXPECT_FALSE(movePiece.undo());
+                            }
+                        }
+                    }
+                }
+            }
+            j += 7;
+        }
+        gameBoard.accept(printVisitor);
+
     }
 }
