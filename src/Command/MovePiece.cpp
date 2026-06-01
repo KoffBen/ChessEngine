@@ -5,8 +5,8 @@
 
 #include <sstream>
 
-#include "CommandFactory.h"
-#include "Board.h"
+#include "../../include/FactoryInterpreter/CommandFactory.h"
+#include "../../include/Core/Board.h"
 #include "Visitor/PrintVisitor.h"
 
 bool MovePiece::execute()

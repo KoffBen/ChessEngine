@@ -7,9 +7,9 @@
 
 #include <string>
 
-#include "Core/Context.h"
-#include "CommandFactory.h"
-#include "pieces/Piece.h"
+#include "Context.h"
+#include "../FactoryInterpreter/CommandFactory.h"
+#include "../pieces/Piece.h"
 
 class Piece;
 class PassKey;
@@ -29,7 +29,7 @@ public:
     bool defaultSetup();
 
     //IMPORTANT: This is to be adapted with UCI Specs
-    bool givenSetup(std::string placement, bool standard);
+    bool givenSetup(const std::string& placement, bool standard);
 
     bool addPiece(Piece* piece);
 

@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-#include "../include/Board.h"
+#include "../include/Core/Board.h"
 #include <gtest/gtest.h>
 
 #include "Command/MovePiece.h"

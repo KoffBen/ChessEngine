@@ -2,7 +2,7 @@
 // Created by benja on 5/26/2026.
 //
 
-#include "Board.h"
+#include "../../include/Core/Board.h"
 
 #include "Command/MakePiece.h"
 
@@ -11,7 +11,7 @@ bool Board::defaultSetup()
     return givenSetup("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR", true);
 }
 //Hold off for now, until we figure out the right format from UCI
-bool Board::givenSetup(std::string placement, bool standard)
+bool Board::givenSetup(const std::string& placement, bool standard)
 {
     if (!standard) if (!checkValidSetup(placement)) return false;
     GridPoint pt(0, 7);
@@ -37,6 +37,7 @@ bool Board::givenSetup(std::string placement, bool standard)
                 return false;
             }
             pt.x += 1;
+            delete tmp;
         }
     }
     return true;

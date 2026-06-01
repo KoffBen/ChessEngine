@@ -5,7 +5,7 @@
 #ifndef CHESSENGINE_PIECE_H
 #define CHESSENGINE_PIECE_H
 
-#include "GridPoint.h"
+#include "../Core/GridPoint.h"
 #include "Visitor/Visitor.h"
 
 class Piece {

@@ -4,6 +4,7 @@
 
 #ifndef CHESSENGINE_FACTORY_H
 #define CHESSENGINE_FACTORY_H
+#include <string>
 
 class Command;
 class Context;
@@ -21,8 +22,12 @@ public:
     Command* makeCommand(char pieceType, const GridPoint& pos, bool color);
 
     Command* makeCommand(char pieceType, const GridPoint& pos, bool color, Piece* piece);
+
+    Command* makeMoveCommand(const std::string& move);
 private:
     Context* mContext;
+
+    bool checkMoveString(const std::string& checkString) const;
 };
 
 #endif //CHESSENGINE_FACTORY_H

@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-#include "Board.h"
+#include "../../include/Core/Board.h"
 #include "pieces/Bishop.h"
 #include "pieces/King.h"
 #include "pieces/Knight.h"
